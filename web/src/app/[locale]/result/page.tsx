@@ -10,7 +10,6 @@ interface Props {
 export default function ResultPage({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);
   const t = useTranslations('getResult');
-
   return (
     <div className='h-[calc(60vh)]'>
       <h1 className={title()}>{t('result')}</h1>

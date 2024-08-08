@@ -58,7 +58,6 @@ export const Survey = ({
     };
     restoreData();
   }, []);
-
   const currentQuestions = useMemo(
     () =>
       questions.slice(
@@ -142,6 +141,17 @@ export const Survey = ({
   async function submitTest() {
     setLoading(true);
     confetti({});
+    const userId = localStorage.getItem('userId');
+    const body = {
+      testId: 'b5-120',
+      lang: language,
+      invalid: false,
+      timeElapsed: seconds,
+      dateStamp: new Date(),
+      answers
+    }
+    console.log(body,"submitted results");
+    
     const result = await saveTest({
       testId: 'b5-120',
       lang: language,
@@ -152,7 +162,7 @@ export const Survey = ({
     });
     localStorage.removeItem('inProgress');
     localStorage.removeItem('b5data');
-    console.log(result);
+    console.log(result,"servay results");
     localStorage.setItem('resultId', result.id);
     router.push(`/result/${result.id}`);
   }

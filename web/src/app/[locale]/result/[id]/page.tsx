@@ -13,6 +13,7 @@ import { supportEmail } from '@/config/site';
 import ShareBar from '@/components/share-bar';
 import { DomainTabs } from './domain-tabs';
 import { Chip } from '@nextui-org/react';
+import Submitresults from './Submitresults';
 
 export async function generateMetadata({
   params: { locale }
@@ -61,9 +62,9 @@ interface ResultsProps {
   showExpanded?: boolean;
 }
 
+
 const Results = ({ report, showExpanded }: ResultsProps) => {
   const t = useTranslations('results');
-
   return (
     <>
       <div className='flex'>
@@ -100,7 +101,10 @@ const Results = ({ report, showExpanded }: ResultsProps) => {
       <div className='flex mt-10'>
         <h1 className={title()}>{t('theBigFive')}</h1>
       </div>
+
       <BarChart max={120} results={report.results} />
+      <Submitresults results={report.results} />
+
       <DomainTabs
         results={report.results}
         showExpanded={!!showExpanded}
