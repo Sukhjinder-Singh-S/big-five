@@ -24,7 +24,7 @@ const initialState: AuthState = {
   adminId: typeof window !== 'undefined' ? localStorage.getItem('adminId') : null, 
 };
 
-const BASE_URL = 'http://localhost:8000/';
+const BASE_URL = "https://backend-three-eta-83.vercel.app/";
 const LOGIN_ENDPOINT = 'api/adminLogin';
 
 // Async thunk for login
